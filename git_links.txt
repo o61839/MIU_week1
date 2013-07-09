@@ -1,12 +1,11 @@
 <!-- 	Jenney Grover
-		VFW 1306
+		MIU 1307
 		Project 1, 2, 3, and 4
 		The Satchel 
 -->
 
 These are my Git Links: 
 
-https://github.com/o61839/VFW_1306_project1.git
+https://github.com/o61839/MIU_week1.git
 
-http://o61839.github.io/VFW_1306_project1/
-
+http://o61839.github.io/MIU_week1
