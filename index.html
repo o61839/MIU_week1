@@ -13,25 +13,28 @@
         <!-- meta name="robots" content="noindex, nofollow" /> -->
         <meta name="keywords" content="html5, mobile development, Full Sail University, library, books, Satchel, bookbag" />
         <meta name="author" content="Jenney Grover" />
-        <meta name="viewport" content="640" />
         <meta name="description" content="Keep track of your library on The Satchel." />
-        <!-- <meta name="viewpoint" content="user-scalable=yes, width=device-width" /> -->
-    	<!-- user-scalable is a yes/no for if user is able to zoom in or not ; assume 360 px wide not 960 px--> 
-    	<!-- android dpi -->
-     	<!-- <meta name="viewport" content="target-densitydpi=device-dpi" /> -->
-    	<!-- older phones or not-so-smart phones -->
-     	<!--<meta name="HandheldFriendly" content="True" /> -->
-    	<!--<meta name="MobileOptimized" content="320" /> -->
+       	<meta name = "viewport" content = "width = 320, initial-scale = 0.9, user-scalable = yes">
 		<link href="css/styles.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
+		<header>
+			<p> Trouble organizing your book collection? 
+			</p>
+		</header>
 		<div>
-    		<a href="additem.html"><img src="images/cta.png" alt="cta"/></a>
+    			<a href="additem.html"><img src="images/cta.png" alt="cta"/></a>
 		</div>
-			<p>This app will track the books in your library. It'll provide easy access for when you are at the bookstore to check your titles. </p>
-			<p>This app can also be used to track books that you have borrowed from the library or that you have on a mobile devices. </p>
-			<p>Here is a link to<a href="additem.html" target="_blank">add a book!</a></p>
-
+		<div class="searchFeature">
+        		<p id="searchFunction"><input type="text" id="bookSearch" placeholder="Search for a Book!"/><input type="button" id="searchSubmit" value="Search" /></p>
+        </div>
+        <div class="browseFeature">
+        		<a href="error401.html"><img src="images/hardcover.png" alt="browse"/></a>
+        		<a href="error401.html"><img src="images/paperback.png" alt="browse"/></a>
+        		<a href="error401.html"><img src="images/mobile.png" alt="browse"/></a>
+        		<a href="error401.html"><img src="images/audio.png" alt="browse"/></a>
+        		<a href="error401.html"><img src="images/series.png" alt="browse"/></a>
+        </div>
 		<footer>
    			 <small>June 6, 2013, Jenney Grover</small><br />
    			 <small>&copy 2013 Duffer Design. All Rights Reserved.</small>
