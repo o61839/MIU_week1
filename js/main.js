@@ -1,16 +1,14 @@
 /* 	Jenney Grover
-	VFW 1306
-	Project 2, 3, and 4
-	June 13, 2013
-	June 20, 2013
-	June 27, 2013
+	MIU 1307
+	Project 1, 2, 3, and 4
+	began June 6th, 2013
 */
 
 //Wait until the DOM is ready. 
 window.addEventListener("DOMContentLoaded", function(){
 
 	//getElementByID function. 
-	function $(x){
+	function ge(x){
 		var theElement = document.getElementById(x);
 		return theElement; 
 	};
@@ -18,7 +16,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	//Create select field element and populate with the options
 	function genreCategory (){
 		var formTag 	= document.getElementsByTagName("myBookQuestions"), //formTag is an array of all the form tags. 
-			selectLi 	= $("selectGenre"), //targets list item with id of select
+			selectLi 	= ge("selectGenre"), //targets list item with id of select
 			makeSelect	= document.createElement("select"); //creates HTML element select
 			makeSelect.setAttribute("id", "genres"); 
 		for (var i=0, j=booksGenres.length; i<j; i++) {//grab options in the variable array
@@ -85,20 +83,20 @@ window.addEventListener("DOMContentLoaded", function(){
    	function toggleControls(n){
 		switch(n){
 			case "on":
-				$("myBookQuestions").style.display = "none"; //the form
-				$("emptySatchel").style.display = "inline"; //the red button
-				$("submitButton").style.visibility = "hidden"; //purple button
-				$("showSatchel").style.display = "none"; //green button
-				$("goHome").style.display = "inline"; //green button to go home 
-				$("bookInfoDisplay").style.display = "block"; //the book information
+				ge("myBookQuestions").style.display = "none"; //the form
+				ge("emptySatchel").style.display = "inline"; //the red button
+				ge("submitButton").style.visibility = "hidden"; //purple button
+				ge("showSatchel").style.display = "none"; //green button
+				ge("goHome").style.display = "inline"; //green button to go home 
+				ge("bookInfoDisplay").style.display = "block"; //the book information
 				break;
 			case "off":
-				$("myBookQuestions").style.display = "block"; //the form
-				$("emptySatchel").style.display = "inline"; //the red button
-				$("submitButton").style.visibility = "visible"; //purple button
-				$("showSatchel").style.display = "inline"; //green button
-				$("goHome").style.display = "none"; //green button to go home 
-				$("bookInfoDisplay").style.display = "none"; //the book information
+				ge("myBookQuestions").style.display = "block"; //the form
+				ge("emptySatchel").style.display = "inline"; //the red button
+				ge("submitButton").style.visibility = "visible"; //purple button
+				ge("showSatchel").style.display = "inline"; //green button
+				ge("goHome").style.display = "none"; //green button to go home 
+				ge("bookInfoDisplay").style.display = "none"; //the book information
 				break;
 			default:
 				return false; 
@@ -124,18 +122,18 @@ window.addEventListener("DOMContentLoaded", function(){
 		typeBookChoices();
 		var myData			= { 
 		//used the returns from the functions and set those as the variables for these arrays.
-			nameBook 	: ["Name: ", $("bname").value],
-			nameAuthor 	: ["Author: ", $("aname").value],
-			isbnNumber 	: ["ISBN: ", $("isbn").value],
-			dateAdded 	: ["Added: ", $("dateAdded").value],
-			datePublish : ["Published: ", $("datePublished").value],
-			genre		: ["Genre: ", $("genres").value],
+			nameBook 	: ["Name: ", ge("bname").value],
+			nameAuthor 	: ["Author: ", ge("aname").value],
+			isbnNumber 	: ["ISBN: ", ge("isbn").value],
+			dateAdded 	: ["Added: ", ge("dateAdded").value],
+			datePublish : ["Published: ", ge("datePublished").value],
+			genre		: ["Genre: ", ge("genres").value],
 			readBook	: ["Read: ", readingSelection],
-			rating		: ["Rate: ", $("rating").value],
+			rating		: ["Rate: ", ge("rating").value],
 			purchased	: ["Purchased: ", permanentSelection],
 			cover		: ["Cover: ", coverSelection],
 			fiction		: ["Type: ", typeSelection],
-			comments 	: ["Comments: ", $("comments").value]
+			comments 	: ["Comments: ", ge("comments").value]
 		};
 		//Save data into Local Storage: use Stringify to convert our object to a string by using JSON.stringify
 		localStorage.setItem(keyValue, JSON.stringify(myData)); 
@@ -158,7 +156,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			toggleControls("off"); //saves user a step to getting back to the form. 
 			autoFillData();
 		} else {
-			var makeDiv 	= $("bookInfoDisplay"); 
+			var makeDiv 	= ge("bookInfoDisplay"); 
 			makeDiv.innerHTML = ""; //resets the wonky storage issue
 			var makeList 	= document.createElement("ul");
 			makeDiv.appendChild(makeList);  
@@ -247,12 +245,12 @@ window.addEventListener("DOMContentLoaded", function(){
 		//show the form
 		toggleControls("off"); 
 		//populate the form fields with the current localStorage Values. 
-		$("bname").value = myData.nameBook[1]; 
-		$("aname").value = myData.nameAuthor[1];
-		$("isbn").value = myData.isbnNumber[1];
-		$("dateAdded").value = myData.dateAdded[1];
-		$("datePublished").value = myData.datePublish[1];
-		$("genres").value = myData.genre[1];
+		ge("bname").value = myData.nameBook[1]; 
+		ge("aname").value = myData.nameAuthor[1];
+		ge("isbn").value = myData.isbnNumber[1];
+		ge("dateAdded").value = myData.dateAdded[1];
+		ge("datePublished").value = myData.datePublish[1];
+		ge("genres").value = myData.genre[1];
 		var selected = document.getElementById("myBookQuestions").choice;
 		for(var s=0, t=selected.length; s<t; s++){
 			if(selected[s].value == "read" && myData.readBook[1] == "read"){
@@ -261,7 +259,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				selected[s].setAttribute("checked", "checked");
 			}
 		}
-		$("rating").value = myData.rating[1];
+		ge("rating").value = myData.rating[1];
 		var selectedP 	= document.getElementById("myBookQuestions").permanent;
 		for(var s=0, t=selectedP.length; s<t; s++){
 			if(selectedP[s].value == "purchased" && myData.purchased[1] == "purchased"){
@@ -288,13 +286,13 @@ window.addEventListener("DOMContentLoaded", function(){
 				selectedT[s].setAttribute("checked", "checked");
 			} 
 		}
-		$("comments").value = myData.comments[1];
+		ge("comments").value = myData.comments[1];
 		
 		//Remove the initial listener from the input "submitButton". 
 		saveBook.removeEventListener("click", submitInfo)
 		//change "submitButton" value to Edit book. 
-		$("submitButton").value = "Edit Book"; 
-		var editSubmit = $("submitButton");
+		ge("submitButton").value = "Edit Book"; 
+		var editSubmit = ge("submitButton");
 		//save the key value established in this function is a product of the editSubmit function
 		//so we can use that value when we save the data we edited. 
 		editSubmit.addEventListener("click", validate);
@@ -306,12 +304,12 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	function validate(e){
 		//define the elements we want to check
-		var getBname = $("bname"); 
-		var getAname = $("aname");
-		var getISBN = $("isbn"); 
-		var getDateAdded = $("dateAdded");
-		var getDatePubl = $("datePublished");
-		var getGenres = $("genres"); 
+		var getBname = ge("bname"); 
+		var getAname = ge("aname");
+		var getISBN = ge("isbn"); 
+		var getDateAdded = ge("dateAdded");
+		var getDatePubl = ge("datePublished");
+		var getGenres = ge("genres"); 
 		//Get Error Messages
 		var messageAry = []; 
 		
@@ -427,23 +425,23 @@ window.addEventListener("DOMContentLoaded", function(){
 	};
 	
 	//Variable defaults
-	var booksGenres 	= ["--Choose A Genre--", "autobiography", "biography", "business finance", "classics", "comic graphic", "computers", "cooking", "craft & hobby", "crime", "design", "exercise", "fantasy", "gardening & farming", "health & mind & body", "history", "horror", "house & garden", "languages", "music", "outdoor activities", "paranormal", "poetry", "religion", "romance", "sports", "scifi", "technical", "travel guides", "true crime", "witches & wizards & magic", "woodworking"];
+	var booksGenres 	= ["--Choose A Genre--", "autobiography", "biography", "business finance", "classics", "comic graphic", "computers", "cooking", "craft & hobby", "crime", "design", "exercise", "fantasy", "gardening & farming", "health & mind & body", "historical fiction", "history", "horror", "house & garden", "languages", "music", "outdoor activities", "paranormal", "poetry", "religion", "romance", "sports", "scifi", "technical", "travel guides", "true crime", "witches & wizards & magic", "woodworking"];
 	var readingSelection;
 	var permanentSelection; 
 	var coverSelection; 
 	var typeSelection;  
 	genreCategory (); 
-	var errMsg = $("errors"); 
+	var errMsg = ge("errors"); 
   
 	
 	//Set link & Submit Click Events
-	var saveBook 		= $("submitButton"); 
+	var saveBook 		= ge("submitButton"); 
 	saveBook.addEventListener("click", validate);
-	var showBook 		= $("showSatchel"); 
+	var showBook 		= ge("showSatchel"); 
 	showBook.addEventListener("click", showInfo);
-	var goToForm 		= $("goHome");
+	var goToForm 		= ge("goHome");
 	goToForm.addEventListener("click", returnHome);
-	var emptySatchel 	= $("emptySatchel");
+	var emptySatchel 	= ge("emptySatchel");
 	emptySatchel.addEventListener("click", clearInfo);
 
 
