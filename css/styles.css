@@ -10,6 +10,11 @@ body{font-family:Bookman, Courier, Verdana; width: 480px; margin: auto; padding:
 /*FEFFD9 -- background*/
 /* does having this width and height change the html dimensions listed previously? */
 
+header {
+	margin-top: 5px; 
+	font-size: 14px;
+	text-align: left; 
+}
 
 h1 {
 	margin: 10px 15px; 
@@ -59,14 +64,15 @@ form {
 	/*EEE5FF -- form color*/
 }
 
-div {
-	box-shadow: 10px 10px 5px #888888;
+#bookSearch.left {
+	float: left;
+	text-align: left; 
 }
 
 li {
 	margin: 8px; 
 	font-family: Verdana;
-	font-size: 0.9pc 
+	font-size: 0.9pc
 }
 
 select {
@@ -153,7 +159,7 @@ ul li {
 
 footer {
 	margin-top: 5px; 
-	font-size: 12px;
+	font-size: 8px;
 }
 
 .even{background: #fff;}
